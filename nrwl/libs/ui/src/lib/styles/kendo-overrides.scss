@@ -1,0 +1,96 @@
+/********************************************
+    VENDOR --> KENDO UI FOR ANGULAR
+********************************************/
+
+// KENDO UI variable overrides
+//global
+$accent: $brand-info;
+$border-radius: $controls-border-radius;
+$font-size: $controls-font-size;
+
+//button
+$button-border: $controls-button-border;
+$button-pressed-border: $controls-button-pressed-border;
+$button-shadow: $controls-button-shadow;
+$button-focused-shadow: $controls-button-focused-shadow;
+$button-pressed-shadow: $controls-button-pressed-shadow;
+
+// grid
+$grid-alt-bg: $controls-grid-alt-bg;
+$grid-selected-text: $controls-grid-selected-text;
+
+@import '~@progress/kendo-theme-default/scss/all';
+@import './kendo-overrides/info-popup';
+
+.main-dialog + .k-dialog-wrapper {
+  z-index: 10002;
+}
+
+.uploadSec {
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  .crop-area {
+    ly-img-cropper {
+      > div {
+        flex-direction: column;
+        img {
+          width: 50px;
+        }
+        span {
+          font-size: 0.8125rem;
+          font-family: 'Roboto-Medium';
+          font-weight: normal;
+          display: block;
+          padding-top: 15px;
+        }
+      }
+      .i5,
+      .y-area-i5 {
+        box-shadow: 0 0 0 20000px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+.uploadBtnSec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  > span {
+    display: block;
+    padding: 15px;
+    font-size: 0.8125rem;
+    font-family: 'Roboto-Medium';
+    font-weight: normal;
+  }
+  poc-button {
+    width: 100%;
+    .default-btn {
+      width: 100%;
+    }
+  }
+}
+.tool-bar {
+  padding: 15px 0;
+  .d-btn.default-btn.k-button.btn-icon {
+    padding: 0;
+    vertical-align: top;
+  }
+  poc-button + poc-button {
+    margin-left: 5px;
+  }
+  ly-slider {
+    margin: 5px 15px 5px 0;
+    &.is {
+      .i9,
+      .y-bg-i9 {
+        background: $btnDefault;
+      }
+
+      .ic,
+      .y-thumb-ic {
+        background: $btnDefault;
+      }
+    }
+  }
+}

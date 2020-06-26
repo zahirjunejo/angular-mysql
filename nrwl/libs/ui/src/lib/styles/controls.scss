@@ -1,0 +1,8 @@
+@import './controls/message';
+@import './controls/data-table';
+poc-checkbox,
+poc-textbox {
+  .error {
+    color: red;
+  }
+}

@@ -1,0 +1,8 @@
+# Creating an Docs Angular Application
+ng generate @nrwl/angular:application docs --style=scss --routing --enableIvy
+
+# Creating an portal Angular Application
+ng generate @nrwl/angular:application portal --style=scss --routing --enableIvy
+
+# Creating an UI NX Library
+ng g @nrwl/angular:lib ui 

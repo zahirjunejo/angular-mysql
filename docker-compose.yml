@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    image: poc-apps/webserver:12
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/staging/poc-apps
+    command: >
+        /bin/bash -c "cp -R /var/www/staging/poc-apps/_config/nginx /etc 
+        && rm -rf /etc/nginx/sites-enabled/default
+        && rm -rf /etc/nginx/sites-enabled/poc.local.conf && ln -s /etc/nginx/sites-available/poc.local.conf /etc/nginx/sites-enabled/poc.local.conf
+        && rm -rf /etc/nginx/sites-enabled/app.poc.local.conf && ln -s /etc/nginx/sites-available/app.poc.local.conf /etc/nginx/sites-enabled/app.poc.local.conf
+        && exec nginx -g 'daemon off;'"
+  db:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    ports:
+      - "1444:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=qvBisw5TQLSfjgq
+    volumes:
+      - ./database:/var/opt/mssql/data      

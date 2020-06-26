@@ -1,0 +1,20 @@
+.info-popup {
+  padding: 0 5px;
+}
+
+.poc-info-popup-button.poc-info-popup-button-open {
+  color: $brand-info;
+}
+
+.poc-info-popup,
+.info-popup + .k-animation-container-fixed > .k-popup {
+  background-color: lighten(
+    saturate(adjust-hue($brand-info, 1.2605), 46.6368),
+    53.1373
+  );
+  color: $brand-info;
+  padding: 10px;
+  border: 1px solid lighten($brand-info, 20%);
+  font-size: 12px;
+  font-weight: normal;
+}

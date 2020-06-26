@@ -1,0 +1,50 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- feature/*
+- work-in-progress
+- staging
+- develop
+- production
+
+pool:
+  vmImage: 'ubuntu-latest'
+  # name: Default
+
+variables:
+  IS_AZURE_PIPELINE: 1
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
+- script: |
+    npm install -g pm2
+    npm install -g gulp-cli
+    npm install -g @angular/cli
+    yarn
+    # ng build --prod
+    gulp deployStaging
+  displayName: 'yarn install and build'
+- task: CopyFiles@1
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/nrwl/dist'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/poc-apps/nrwl/dist'
+    CleanTargetFolder: false
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)/poc-apps'
+    includeRootFolder: true
+    archiveType: 'tar'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).tar'
+    replaceExistingArchive: true
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).tar'
+    ArtifactName: 'poc-apps'
+    publishLocation: 'Container'

@@ -1,0 +1,21 @@
+.poc-notify {
+  padding: 13px 10px !important;
+  font-size: 13px !important;
+  color: white !important;
+  &.k-notification-success {
+    border-color: #3c9018 !important;
+    background-color: #3c9018 !important;
+  }
+  &.k-notification-error {
+    border-color: #c32f20 !important;
+    background-color: #c32f20 !important;
+  }
+  &.k-notification-info {
+    border-color: #3794bd !important;
+    background-color: #3794bd !important;
+  }
+  &.k-notification-warning {
+    border-color: #c57b0a !important;
+    background-color: #c57b0a !important;
+  }
+}

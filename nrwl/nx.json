@@ -1,0 +1,45 @@
+{
+  "npmScope": "poc",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "api": {
+      "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "docs-e2e": {
+      "tags": []
+    },
+    "docs": {
+      "tags": []
+    },
+    "platform-e2e": {
+      "tags": []
+    },
+    "platform": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "bc-bopis-e2e": {
+      "tags": []
+    },
+    "bc-bopis": {
+      "tags": []
+    },
+    "portal-e2e": {
+      "tags": []
+    },
+    "portal": {
+      "tags": []
+    }
+  }
+}

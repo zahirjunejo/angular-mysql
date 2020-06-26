@@ -1,0 +1,24 @@
+<div class="main-dialog" *ngIf="!dialog" kendoDialogContainer></div>
+<kendo-dialog
+  [title]="title"
+  (close)="cancel()"
+  [height]="height"
+  [width]="width"
+  *ngIf="dialog?.isDialogInitialized"
+>
+  <ng-content></ng-content>
+  <kendo-dialog-actions [layout]="actionsLayout">
+    <ng-content select="[extra-buttons]"></ng-content>
+    <button
+      kendoButton
+      class="light-btn d-btn"
+      (click)="cancel()"
+      *ngIf="!hideCancelButton"
+    >
+      Cancel
+    </button>
+    <button kendoButton class="default-btn d-btn" (click)="ok()">
+      {{ okButtonLabel }}
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>

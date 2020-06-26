@@ -1,0 +1,4 @@
+npm install -g @angular/cli @nrwl/schematics gulp
+
+# a new workspace with a full stack application built with Angular Ivy and NestJS
+npx create-nx-workspace@latest poc --directory=nrwl --preset=angular-nest
